@@ -60,7 +60,7 @@ public class ContainerLayout extends ViewGroup {
                 System.out.println("父亲拦截事件# 父亲  up");
                 break;
         }
-        return true;
+        return super.onInterceptTouchEvent(ev);
     }
 
     @Override
@@ -68,7 +68,6 @@ public class ContainerLayout extends ViewGroup {
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 System.out.println("父亲 touch 事件# 父亲  down");
-
                 break;
             case MotionEvent.ACTION_MOVE:
                 System.out.println("父亲 touch 事件# 父亲  move");
@@ -77,6 +76,6 @@ public class ContainerLayout extends ViewGroup {
                 System.out.println("父亲 touch 事件# 父亲  up");
                 break;
         }
-        return super.onTouchEvent(ev);
+        return false;
     }
 }

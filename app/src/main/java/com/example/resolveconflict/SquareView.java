@@ -39,7 +39,6 @@ public class SquareView extends View {
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 System.out.println("dispatchTouchEvent # 孩子  down");
-                flag = true;
                 break;
             case MotionEvent.ACTION_MOVE:
                 System.out.println("dispatchTouchEvent # 孩子  move");
@@ -48,7 +47,7 @@ public class SquareView extends View {
                 System.out.println("dispatchTouchEvent # 孩子  up");
                 break;
         }
-        return true;
+        return super.dispatchTouchEvent(ev);
     }
 
     @Override

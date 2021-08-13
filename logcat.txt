@@ -1,0 +1,125 @@
+父:
+dispatchTouchEvent  		 return super.dispatchTouchEvent(ev);
+onInterceptTouchEvent  	 return super.onInterceptTouchEvent(ev);
+onTouchEvent    				 return super.onTouchEvent(ev);
+
+子:
+dispatchTouchEvent  		 return super.dispatchTouchEvent(ev);
+onTouchEvent    				 return true;
+==============正常的事件传递流程=====================
+2021-08-13 16:14:42.077 14610-14610/? I/System.out: dispatchTouchEvent# 父亲  down
+2021-08-13 16:14:42.077 14610-14610/? I/System.out: 父亲拦截事件# 父亲  down
+2021-08-13 16:14:42.077 14610-14610/? I/System.out: dispatchTouchEvent # 孩子  down
+2021-08-13 16:14:42.077 14610-14610/? I/System.out: 孩子 onTouchEvent# 孩子  down
+2021-08-13 16:14:42.238 14610-14610/? I/System.out: dispatchTouchEvent# 父亲  move
+2021-08-13 16:14:42.238 14610-14610/? I/System.out: 父亲拦截事件# 父亲  move
+2021-08-13 16:14:42.238 14610-14610/? I/System.out: dispatchTouchEvent # 孩子  move
+2021-08-13 16:14:42.238 14610-14610/? I/System.out: 孩子 onTouchEvent# 孩子  move
+2021-08-13 16:14:42.306 14610-14610/? I/System.out: dispatchTouchEvent# 父亲  move
+2021-08-13 16:14:42.306 14610-14610/? I/System.out: 父亲拦截事件# 父亲  move
+2021-08-13 16:14:42.306 14610-14610/? I/System.out: dispatchTouchEvent # 孩子  move
+2021-08-13 16:14:42.306 14610-14610/? I/System.out: 孩子 onTouchEvent# 孩子  move
+2021-08-13 16:14:42.406 14610-14610/? I/System.out: dispatchTouchEvent# 父亲  move
+2021-08-13 16:14:42.406 14610-14610/? I/System.out: 父亲拦截事件# 父亲  move
+2021-08-13 16:14:42.406 14610-14610/? I/System.out: dispatchTouchEvent # 孩子  move
+2021-08-13 16:14:42.406 14610-14610/? I/System.out: 孩子 onTouchEvent# 孩子  move
+2021-08-13 16:14:42.428 14610-14610/? I/System.out: dispatchTouchEvent# 父亲  up
+2021-08-13 16:14:42.428 14610-14610/? I/System.out: 父亲拦截事件# 父亲  up
+2021-08-13 16:14:42.428 14610-14610/? I/System.out: dispatchTouchEvent # 孩子  up
+2021-08-13 16:14:42.428 14610-14610/? I/System.out: 孩子 onTouchEvent# 孩子  up
+
+
+父:
+dispatchTouchEvent  		 return super.dispatchTouchEvent(ev);
+onInterceptTouchEvent  	 return super.onInterceptTouchEvent(ev);
+onTouchEvent    				 return super.onTouchEvent(ev);
+
+子:
+dispatchTouchEvent  		 return super.dispatchTouchEvent(ev);
+onTouchEvent    				 return true;
+2021-08-13 15:54:16.118 25062-25062/com.example.resolveconflict I/System.out: dispatchTouchEvent# 父亲  down
+2021-08-13 15:54:16.118 25062-25062/com.example.resolveconflict I/System.out: 父亲拦截事件# 父亲  down
+2021-08-13 15:54:16.118 25062-25062/com.example.resolveconflict I/System.out: dispatchTouchEvent # 孩子  down
+2021-08-13 15:54:16.118 25062-25062/com.example.resolveconflict I/System.out: 孩子 onTouchEvent# 孩子  down
+2021-08-13 15:54:16.169 25062-25062/com.example.resolveconflict I/System.out: dispatchTouchEvent# 父亲  move
+2021-08-13 15:54:16.169 25062-25062/com.example.resolveconflict I/System.out: 父亲拦截事件# 父亲  move
+2021-08-13 15:54:16.169 25062-25062/com.example.resolveconflict I/System.out: dispatchTouchEvent # 孩子  move
+2021-08-13 15:54:16.169 25062-25062/com.example.resolveconflict I/System.out: 孩子 onTouchEvent# 孩子  move
+2021-08-13 15:54:16.256 25062-25062/com.example.resolveconflict I/System.out: dispatchTouchEvent# 父亲  move
+2021-08-13 15:54:16.256 25062-25062/com.example.resolveconflict I/System.out: 父亲拦截事件# 父亲  move
+2021-08-13 15:54:16.256 25062-25062/com.example.resolveconflict I/System.out: dispatchTouchEvent # 孩子  move
+2021-08-13 15:54:16.256 25062-25062/com.example.resolveconflict I/System.out: 孩子 onTouchEvent# 孩子  move
+........
+2021-08-13 15:54:16.867 25062-25062/com.example.resolveconflict I/System.out: dispatchTouchEvent# 父亲  up
+2021-08-13 15:54:16.867 25062-25062/com.example.resolveconflict I/System.out: 父亲拦截事件# 父亲  up
+2021-08-13 15:54:16.868 25062-25062/com.example.resolveconflict I/System.out: dispatchTouchEvent # 孩子  up
+2021-08-13 15:54:16.868 25062-25062/com.example.resolveconflict I/System.out: 孩子 onTouchEvent# 孩子  up
+
+结论: 子view的onTouchEvent返回了true 事件就被消费
+================================================================================================
+
+父:
+dispatchTouchEvent  		 return super.dispatchTouchEvent(ev);
+onInterceptTouchEvent  	 return super.onInterceptTouchEvent(ev);
+onTouchEvent    				 return super.onTouchEvent(ev);
+
+子:
+dispatchTouchEvent  		 return true;
+onTouchEvent    				 return true;
+2021-08-13 15:59:39.658 12963-12963/com.example.resolveconflict I/System.out: dispatchTouchEvent# 父亲  down
+2021-08-13 15:59:39.658 12963-12963/com.example.resolveconflict I/System.out: 父亲拦截事件# 父亲  down
+2021-08-13 15:59:39.658 12963-12963/com.example.resolveconflict I/System.out: dispatchTouchEvent # 孩子  down
+2021-08-13 15:59:39.761 12963-12963/com.example.resolveconflict I/System.out: dispatchTouchEvent# 父亲  move
+2021-08-13 15:59:39.761 12963-12963/com.example.resolveconflict I/System.out: 父亲拦截事件# 父亲  move
+2021-08-13 15:59:39.761 12963-12963/com.example.resolveconflict I/System.out: dispatchTouchEvent # 孩子  move
+2021-08-13 15:59:39.861 12963-12963/com.example.resolveconflict I/System.out: dispatchTouchEvent# 父亲  move
+2021-08-13 15:59:39.861 12963-12963/com.example.resolveconflict I/System.out: 父亲拦截事件# 父亲  move
+2021-08-13 15:59:39.861 12963-12963/com.example.resolveconflict I/System.out: dispatchTouchEvent # 孩子  move
+2021-08-13 15:59:39.978 12963-12963/com.example.resolveconflict I/System.out: dispatchTouchEvent# 父亲  up
+2021-08-13 15:59:39.978 12963-12963/com.example.resolveconflict I/System.out: 父亲拦截事件# 父亲  up
+2021-08-13 15:59:39.978 12963-12963/com.example.resolveconflict I/System.out: dispatchTouchEvent # 孩子  up
+
+结论:一旦自己的dispatchTouchEvent 返回了true 自己的onTouchEvent 将接收不到事件
+
+================================================================================================
+父:
+dispatchTouchEvent  		 return true;
+onInterceptTouchEvent  	 return super.onInterceptTouchEvent(ev);
+onTouchEvent    				 return true;
+
+子:
+dispatchTouchEvent  		 return super.dispatchTouchEvent(ev);
+onTouchEvent    				 return super.onTouchEvent(ev);
+2021-08-13 16:07:06.755 28310-28310/? I/System.out: dispatchTouchEvent# 父亲  down
+2021-08-13 16:07:06.877 28310-28310/? I/System.out: dispatchTouchEvent# 父亲  move
+2021-08-13 16:07:06.967 28310-28310/? I/System.out: dispatchTouchEvent# 父亲  move
+2021-08-13 16:07:07.028 28310-28310/? I/System.out: dispatchTouchEvent# 父亲  move
+2021-08-13 16:07:07.082 28310-28310/? I/System.out: dispatchTouchEvent# 父亲  up
+
+结论:一旦自己的dispatchTouchEvent 返回了true 自己的onTouchEvent 将接收不到事件
+================================================================================================
+
+父:
+dispatchTouchEvent  		 return super.dispatchTouchEvent(ev);
+onInterceptTouchEvent  	 return true/false;
+onTouchEvent    				 return true;
+
+子:
+dispatchTouchEvent  		 return super.dispatchTouchEvent(ev);
+onTouchEvent    				 return super.onTouchEvent(ev);
+
+2021-08-13 16:09:43.005 28308-28308/com.example.resolveconflict I/System.out: dispatchTouchEvent# 父亲  down
+2021-08-13 16:09:43.005 28308-28308/com.example.resolveconflict I/System.out: 父亲拦截事件# 父亲  down
+2021-08-13 16:09:43.005 28308-28308/com.example.resolveconflict I/System.out: dispatchTouchEvent # 孩子  down
+2021-08-13 16:09:43.005 28308-28308/com.example.resolveconflict I/System.out: 孩子 onTouchEvent# 孩子  down
+2021-08-13 16:09:43.005 28308-28308/com.example.resolveconflict I/System.out: 父亲 touch 事件# 父亲  down
+2021-08-13 16:09:43.113 28308-28308/com.example.resolveconflict I/System.out: dispatchTouchEvent# 父亲  move
+2021-08-13 16:09:43.113 28308-28308/com.example.resolveconflict I/System.out: 父亲 touch 事件# 父亲  move
+2021-08-13 16:09:43.177 28308-28308/com.example.resolveconflict I/System.out: dispatchTouchEvent# 父亲  move
+2021-08-13 16:09:43.177 28308-28308/com.example.resolveconflict I/System.out: 父亲 touch 事件# 父亲  move
+2021-08-13 16:09:43.283 28308-28308/com.example.resolveconflict I/System.out: dispatchTouchEvent# 父亲  move
+2021-08-13 16:09:43.283 28308-28308/com.example.resolveconflict I/System.out: 父亲 touch 事件# 父亲  move
+2021-08-13 16:09:43.301 28308-28308/com.example.resolveconflict I/System.out: dispatchTouchEvent# 父亲  up
+2021-08-13 16:09:43.301 28308-28308/com.example.resolveconflict I/System.out: 父亲 touch 事件# 父亲  up
+
+结论:父view的onTouchEvent返回true, 拦截事件都对当前的view不生效
