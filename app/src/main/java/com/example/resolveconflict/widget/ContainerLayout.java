@@ -1,4 +1,4 @@
-package com.example.resolveconflict;
+package com.example.resolveconflict.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -44,7 +44,8 @@ public class ContainerLayout extends ViewGroup {
                 System.out.println("dispatchTouchEvent# 父亲  up");
                 break;
         }
-        return super.dispatchTouchEvent(ev);
+        super.dispatchTouchEvent(ev);
+        return true;
     }
 
     @Override

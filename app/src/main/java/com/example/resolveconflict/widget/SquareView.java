@@ -1,4 +1,4 @@
-package com.example.resolveconflict;
+package com.example.resolveconflict.widget;
 
 import android.content.Context;
 import android.graphics.Canvas;
