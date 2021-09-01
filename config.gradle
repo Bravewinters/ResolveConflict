@@ -1,0 +1,7 @@
+ext{
+    android = [
+            versionCode : 1
+    ]
+
+    targetSdkVersionInt = 30
+}
