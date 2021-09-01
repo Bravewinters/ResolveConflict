@@ -7,6 +7,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
 
+import com.example.libexternal.ExternalModuleUtil;
 import com.example.resolveconflict.adapter.ImageVPAdapter;
 import com.example.resolveconflict.adapter.TextRecycleAdapter;
 
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new TextRecycleAdapter(this));
+
+        ExternalModuleUtil.hello();
     }
 
 }
