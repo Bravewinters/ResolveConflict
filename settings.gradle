@@ -5,7 +5,7 @@ project(":libexternal").setProjectDir(new File("../ExternalModule/libexternal"))
 
 //1.在DemoLogin的settings.gradle 添加
 //include(":base")   //base
-//project(":base").setProjectDir(new File("../android-tongdao-app/base"))  //base所在的路径
+//project(":base").setProjectDir(new File("../android_apply_module/base"))  //base所在的路径
 //备注 : 你这的路径可能不一样,给相对路径或者绝对路径都可以
 
 //2.在app模块的build.gradle 的 dependencies 依赖位置添加 implementation project(path: ':libexternal')
